@@ -53,7 +53,11 @@ mongoose.connect('mongodb+srv://SahilMulani:Sahil2165@cluster0.yqlks9v.mongodb.n
 
 
 app.use(bodyParser.json());
-app.use( "*", cors({origin: "http://localhost:3000", credentials: true }));
+app.use( "*", cors({
+  origin: ['http://localhost:3000', 'https://crypts-app.onrender.com']
+}
+  
+  ));
 
 
 
