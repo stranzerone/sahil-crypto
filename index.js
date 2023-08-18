@@ -467,6 +467,6 @@ Data.updateMany({user:resp.username,name:req.body.name},{stocks:latestS,amount:l
 
 
 
-app.listen(5000, () => {
+app.listen('https://newappp-1qw5-api.onrender.com', () => {
   console.log(`Server is running on http://localhost:5000`);
 })
