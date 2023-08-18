@@ -12,6 +12,7 @@ dotenv.config(); // Load environment variables from .env file
 const saltRound = 5;
 const app = express();
 const database= process.env.DATABASE;
+const PORT = process.env.PORT;
 
 app.use(
   session({
@@ -489,6 +490,6 @@ app.post("delete",(req,res)=>{
 
 
 
-app.listen(5000, () => {
-  console.log(`Server is running on http://localhost:5000`);
+app.listen(PORT, () => {
+  console.log(`Server is running on ${PORT}`);
 })
