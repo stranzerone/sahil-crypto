@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4b6b58c8.css",
+    "main.js": "/static/js/main.c253e72a.js",
+    "static/media/flower.jpg": "/static/media/flower.6ee2f46f1b3191d9030d.jpg",
+    "static/media/Buy.jpg": "/static/media/Buy.b1998c64265e31792724.jpg",
+    "static/media/i1.png": "/static/media/i1.37fff0c96cd7ab881ff4.png",
+    "static/media/i3.png": "/static/media/i3.123bbe59220dbcfcd612.png",
+    "static/media/OIP.png": "/static/media/OIP.b8913a1820b2b17f1c04.png",
+    "index.html": "/index.html",
+    "main.4b6b58c8.css.map": "/static/css/main.4b6b58c8.css.map",
+    "main.c253e72a.js.map": "/static/js/main.c253e72a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b6b58c8.css",
+    "static/js/main.c253e72a.js"
+  ]
+}

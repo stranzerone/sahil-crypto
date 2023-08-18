@@ -1,0 +1,49 @@
+import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
+
+// Replace the following with your actual MongoDB URI
+const mongodbUri = 'mongodb+srv://sahil8712860797:Sahil2165@sahildb.js8ierb.mongodb.net/';
+
+async function connectToMongoDB() {
+
+  
+  try {
+    // Create a new MongoClient
+    const client = new MongoClient(mongodbUri, { useUnifiedTopology: true });
+
+    // Connect to the MongoDB cluster
+    await client.connect();
+
+    console.log('Connected successfully to MongoDB cluster');
+
+    // Now you can access databases and collections
+    const db = client.db('sahilDB');
+    const collection = db.collection('Fruits');
+
+    const fruitSchema =new mongoose.Schema ({
+    name : String,
+     rating : Number,
+    review : String
+    });
+
+    const Fruit =mongoose.model("Fruits",fruitSchema);
+
+    const fruit = new Fruit ({
+      name :"Apple",
+      rating : 7,
+      review : "Pretty solid as a fruit"
+    });
+
+    fruit.save();
+    // Perform any database operations you need here...
+
+    // Don't forget to close the connection when done
+    await client.close();
+    console.log('Connection closed');
+  } catch (err) {
+    console.error('Error connecting to MongoDB:', err);
+  }
+}
+
+// Call the function to connect to MongoDB
+connectToMongoDB();
