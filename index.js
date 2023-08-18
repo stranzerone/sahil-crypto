@@ -5,20 +5,18 @@ import cors from 'cors'
 import bcrypt from 'bcrypt';
 import  session  from 'express-session';
 import cookieParser from 'cookie-parser';
-import jwt from 'jsonwebtoken';
-import path from 'path';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
+import jwt from 'jsonwebtoken'
+import dotenv from 'dotenv';
+dotenv.config(); // Load environment variables from .env file
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const saltRound = 5;
 const app = express();
-
+const database= process.env.DATABASE;
 
 app.use(
   session({
     key:"userId",
-    secret:"subscribe",
+    secret:process.env.SECRETKEY,
     resave:false,
     saveUninitialized:false,
     cookie:{
@@ -32,15 +30,8 @@ app.use(
 )
 app.use(cookieParser());
 
-app.use(express.static(path.join(__dirname,'./client/build')));
 
-app.get('*',function(req,res){
-  res.sendFile(path.join(__dirname,'./client/build/index.html'))
-
-})
-
-
-mongoose.connect('mongodb+srv://SahilMulani:Sahil2165@cluster0.yqlks9v.mongodb.net/').then(
+mongoose.connect(database).then(
   console.log("server conndected")
 )
 
@@ -53,14 +44,8 @@ mongoose.connect('mongodb+srv://SahilMulani:Sahil2165@cluster0.yqlks9v.mongodb.n
 
 
 app.use(bodyParser.json());
+app.use( "*", cors({origin: "http://localhost:3000", credentials: true }));
 
-
-app.options('*', cors());
-
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://newappp-1qw5.onrender.com'],
-  credentials: true
-}));
 
 
 
@@ -100,6 +85,10 @@ check:{
   type:String,
   required:true
 },
+Wallet:{
+  type:Number,
+  required:false
+}
 
 })
 
@@ -213,6 +202,7 @@ app.post("/login",(req,res)=>{
 Use.findOne({username:req.body.username})
 .then((datas)=>{
 if(datas){
+
   console.log(req.body.username);
   console.log(datas.username);
   bcrypt.compare(req.body.password,datas.password,function(err,result){
@@ -220,9 +210,7 @@ if(datas){
       console.log(err);
     }if(result){
       const token = jwt.sign({ userId: datas._id }, "subscribe",{expiresIn:"1h"} );
-      res.header('Access-Control-Allow-Credentials', 'true');
       res.cookie('token', token);
-
       
       
    
@@ -231,8 +219,10 @@ if(datas){
         (response)=>{
           console.log("Token added to user");
         }
+        
       )
 
+      
 
 
 
@@ -291,6 +281,7 @@ const price = parseFloat(get.price);
 Use.findOne({Token:token}).then(
   (response)=>{
    console.log("user found",response);
+   Data.updateOne({user:response.username},{Wallet:response.Wallet})
     Data.find({user:response.username,name:get.name}).then(
 
       (respon)=>{
@@ -341,6 +332,7 @@ if(respon.length>0){
    amount:NWallet,
    price:get.price,
    check:get.check,
+   Wallet:"000"
    
       })
       data.save();
@@ -377,6 +369,12 @@ if(respon.length>0){
 
 
    app.get("/trade", (req, res) => {
+    Data.findOneAndDelete({stocks:0}).then(
+      (ress)=>{
+        console.log(ress,"I have deleted data successfully");
+      }
+    )
+
     Use.findOne({ Token: req.cookies.token }).then((result) => {
       Data.find({ user: result.username }).then((data) => {
         if (data) {
@@ -428,6 +426,12 @@ Use.findOne({Token:Token}).then(
     Use.updateOne({Token:Token},{Wallet:New}).then(
      (response)=>{
       console.log(response);
+      Data.updateOne({username:response.user},{Wallet:response.Wallet}).then(
+        (update)=>{
+          console.log(update,"this is updaated data");
+        }
+        
+      )
      }
     )
 
@@ -463,10 +467,28 @@ Data.updateMany({user:resp.username,name:req.body.name},{stocks:latestS,amount:l
    })
 
 
+app.post("delete",(req,res)=>{
+
+ const  Token =req.cookies.token;
+ console.log("ihave got uer to delete");
+ Use.findOne({Token:Token}).then(
+  (response)=>{
+    const user =response.username;
+    console.log("user is being deleted");
+
+    Data.findOneAndDelete({user:user,name:req.body.name}).then(
+      (ress)=>{
+        console.log(ress);
+      }
+    )
+
+  }
+ )
+
+})
 
 
 
-
-app.listen('https://newappp-1qw5-api.onrender.com', () => {
+app.listen(5000, () => {
   console.log(`Server is running on http://localhost:5000`);
 })
