@@ -55,6 +55,7 @@ mongoose.connect('mongodb+srv://SahilMulani:Sahil2165@cluster0.yqlks9v.mongodb.n
 app.use(bodyParser.json());
 
 
+app.options('*', cors());
 
 app.use(cors({
   origin: ['http://localhost:3000', 'https://newappp-1qw5.onrender.com'],
