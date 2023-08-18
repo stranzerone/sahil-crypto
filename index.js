@@ -53,13 +53,13 @@ mongoose.connect('mongodb+srv://SahilMulani:Sahil2165@cluster0.yqlks9v.mongodb.n
 
 
 app.use(bodyParser.json());
-app.use( "*", cors({
-  origin: ['http://localhost:3000', 'https://crypts-app.onrender.com'],
-  credentials:true
-}
-  
-  ));
 
+
+
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://newappp-1qw5.onrender.com'],
+  credentials: true
+}));
 
 
 
@@ -219,8 +219,8 @@ if(datas){
       console.log(err);
     }if(result){
       const token = jwt.sign({ userId: datas._id }, "subscribe",{expiresIn:"1h"} );
-      res.cookie('token', token);
       res.header('Access-Control-Allow-Credentials', 'true');
+      res.cookie('token', token);
 
       
       
