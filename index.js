@@ -13,11 +13,12 @@ const saltRound = 5;
 const app = express();
 const database= process.env.DATABASE;
 const PORT = process.env.PORT;
+const key = process.env.SECRETKEY;
 
 app.use(
   session({
     key:"userId",
-    secret:process.env.SECRETKEY,
+    secret:key,
     resave:false,
     saveUninitialized:false,
     cookie:{
@@ -210,7 +211,7 @@ if(datas){
     if(err){
       console.log(err);
     }if(result){
-      const token = jwt.sign({ userId: datas._id }, "subscribe",{expiresIn:"1h"} );
+      const token = jwt.sign({ userId: datas._id }, key,{expiresIn:"1h"} );
       res.cookie('token', token);
       
       
