@@ -7,7 +7,7 @@
   "scripts": {
     "test": "index.js",
     "start": "node index.js",
-    "dev": "concurrently \"npm i \"\" npm run client\"",
+    "dev": "concurrently \"npm start \"\" npm run client\"",
     "build": "node index.js"
   },
   "keywords": [],
