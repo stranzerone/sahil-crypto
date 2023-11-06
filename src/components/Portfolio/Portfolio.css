@@ -1,0 +1,59 @@
+.toper {
+    display: grid;
+    color: white;
+    border-style: solid;
+    text-align: center;
+  }
+  
+  .box {
+    display: grid;
+    height: 10vh;
+  
+    padding-left: 8px;
+    grid-template-columns: 20% 20% 15% 15%  20%  10%;
+    font-size: .5rem;
+    font-weight: 100;
+    color: aliceblue;
+    justify-items: start;
+    text-align: start;
+    border-style: solid;
+    color: white;
+  }
+  
+  .my {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    gap: auto;
+    font-size: .7rem;
+  }
+  .port {
+    display: grid;
+    grid-template-columns: 20% 20% 15% 15%  20%  10%;
+  
+    text-align: start;
+    border-radius: .3rem;
+    align-items: center;
+  }
+  
+  .nname {
+    display: grid;
+    grid-template-columns: 20% 30% 70%;
+    font-size: .8rem;
+    padding-right: .6rem;
+    text-align: start;
+  }
+  
+  
+  .balanceBox{
+    background: rgb(119,31,227);
+  background: linear-gradient(103deg, rgba(119,31,227,0.9584659612517251) 22%, rgba(122,27,222,0.6808634375924192) 93%);
+   border-radius: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: .5rem;
+    justify-items: center;
+    gap: 2rem;
+  }

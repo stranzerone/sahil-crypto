@@ -1,0 +1,41 @@
+@media (max-width:426px) {
+    h1{
+        font-size: 16px;
+    }
+    p{
+        font-size: 10px;
+
+    }
+    .video-section{
+        width: 100%;
+    }
+}
+  
+  
+@media (max-width:325px) {
+    h1{
+        font-size: 6px;
+    }
+    p{
+        font-size: 5px;
+
+    }
+    .video-section{
+        width: 100%;
+    }
+    .hero-section{
+        margin-top: 10rem;
+    }
+}
+  
+@media (max-width:768px) {
+    h1{
+        font-size: 20px;
+    }
+    p{
+        font-size: 15px;
+
+    }
+}
+  
+  

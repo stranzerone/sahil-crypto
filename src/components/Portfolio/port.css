@@ -1,0 +1,80 @@
+
+.portcointaner{
+    background-color:whitesmoke;
+}
+.card{
+display: flex;
+flex-direction: row;
+column-gap: 2rem;
+justify-content: center;
+align-items: center;
+
+background: rgb(62,138,149);
+background: linear-gradient(103deg, rgba(62,138,149,0.7818098098321669) 16%, rgba(49,174,178,0.4379612293905264) 76%);
+    height: 6rem;
+    width: 95vw;
+    border-radius: 2rem 2rem 2rem 2rem;
+    box-shadow: 2px 5px 5px 2px rgb(79, 73, 72);
+    margin: .6rem .6rem;
+
+}
+
+.card img{
+    width: auto;
+}
+
+    .card h1{
+        color: white;
+        font-size: 18px;
+   
+   
+    }
+
+
+
+    
+   
+    .sellButton{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1rem;
+        border-radius: 1rem;
+        box-shadow: .1rem .1rem .1rem .1rem rgb(40, 37, 32);
+        height: 3rem;
+        width: 7rem;
+        text-decoration: none;
+        background: rgb(33,118,130);
+background: linear-gradient(103deg, rgba(33,118,130,0.9900117025766463) 12%, rgb(61, 147, 152) 93%);
+    }
+
+    .sellButton:hover{
+   
+        height: 3.2rem;
+        width: 7.2rem;
+        background-color: rgb(2, 8, 9);
+
+    }
+    .head{
+        height: 4rem;
+        border: .2rem solid white;
+        border-radius: .4rem;
+        text-align: center;
+        box-shadow: .2rem .2rem .3rem .4rem rgb(189, 189, 189);
+    }
+
+    .head h1{
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 1rem;
+ 
+    }
+
+
+    @media (max-width:427px) {
+        .card h1{
+            font-size: .8rem;
+        }
+        
+    }

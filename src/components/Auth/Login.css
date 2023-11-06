@@ -1,0 +1,78 @@
+.Signcointainer{
+
+    display: grid;
+    height: 100vh;
+    background-color: #000000;
+    background-image: linear-gradient(62deg, #000000 0%, #7c7db5 100%);
+    
+   
+   }
+   .signbox{
+    
+ 
+       border: 3px solid white;
+       margin: 5rem 15rem;
+       height: 70vh;
+       width: 50vw;
+       border-radius: 1.2rem;
+       box-shadow: 1rem;
+       box-shadow: 0rem 0rem  1.2rem  wheat;
+      
+       
+   }
+   
+   .logininput{
+       height: 2.5rem;
+       width: 9rem;
+       border-radius: 1rem;
+       margin: -.2rem 1.5rem;
+       background-color:transparent;
+       box-shadow: 0.2rem 0rem .2rem gray;
+       color: white;
+       font-size: 1rem;
+   }
+   .coins{
+ 
+     row-gap: 3rem;
+     justify-content: center;
+     align-items: center;
+     margin: 5rem 5rem;
+    
+   }
+   .signbox h1{
+     font-size: 1.5rem;
+     text-align: start;
+   
+       color:  wheat ;
+       text-shadow: .6rem .5rem .5rem rgb(42, 43, 43);
+      
+   }
+   .loginButton{
+     font-size: 1rem;
+       height: 2.5rem;
+       width: 6rem;
+     margin: 10% 40% ;
+     border-radius: .8rem;
+     box-shadow: 0rem 0rem  1.2rem  wheat;
+     color: white;
+     background: rgb(11,23,54);
+   background: linear-gradient(103deg, rgba(11,23,54,0.9900117025766463) 43%, rgba(14,10,25,0.9237656457943119) 99%);
+       
+   }
+  
+ 
+   .loginButton1{
+     font-size: 1rem;
+       height: 2.5rem;
+       width: 6rem;
+     margin: 1% 40% ;
+     border-radius: .8rem;
+     box-shadow: 0rem 0rem  1.2rem  wheat;
+     color: white;
+     background: rgb(11,23,54);
+   background: linear-gradient(103deg, rgba(11,23,54,0.9900117025766463) 43%, rgba(14,10,25,0.9237656457943119) 99%);
+       
+   }
+ 
+ 
+    

@@ -1,0 +1,32 @@
+.itemBox{
+    height: 5rem;
+    width: 100vw;
+    border: solid .3rem white;
+   text-align: center;
+   align-items: center;
+justify-content: center;
+border-radius: 2rem;
+box-shadow: .3rem .2rem .2rem .2rem black;
+
+ 
+   
+}
+
+.itemBox h1{
+    font-size: 1rem;
+    text-align: end;
+  
+}
+
+/*Title*/
+.title-coin{
+    height: 2rem;
+    
+}
+
+.title-coin h1{
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
